@@ -18,8 +18,8 @@ const os = await OpenShiftClient(config)
 // get all build configs from "example" namespace
 const buildConfigs = await os['build.openshift.io/v1'].getBuildConfigs('example')
 
-// get all builds from "example" of the "app-example" and passing query parameters
-const builds = await os['build.openshift.io/v1'].getBuilds('example', 'app-example', { query: { watch: false } })
+// get all builds configs from "example" of the "app-example" and passing query parameters
+const builds = await os['build.openshift.io/v1'].getBuildConfigs('example', 'app-example', { query: { watch: false } })
 ```
 
 ## APIs and Methods
