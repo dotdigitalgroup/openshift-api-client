@@ -2,5 +2,53 @@
   {
     "resourceKind": "StorageClass",
     "plural": "StorageClasses"
+  },
+  {
+    "resourceKind": "Identity",
+    "plural": "Identities"
+  },
+  {
+    "resourceKind": "Ingress",
+    "plural": "Ingresses"
+  },
+  {
+    "resourceKind": "NetworkPolicy",
+    "plural": "NetworkPolicies"
+  },
+  {
+    "resourceKind": "PodSecurityPolicy",
+    "plural": "PodSecurityPolicies"
+  },
+  {
+    "resourceKind": "NodeMetrics",
+    "plural": "NodeMetrics"
+  },
+  {
+    "resourceKind": "PodMetrics",
+    "plural": "PodMetrics"
+  },
+  {
+    "resourceKind": "Prometheus",
+    "plural": "Prometheus"
+  },
+  {
+    "resourceKind": "EgressNetworkPolicy",
+    "plural": "EgressNetworkPolicies"
+  },
+  {
+    "resourceKind": "PriorityClass",
+    "plural": "PriorityClasses"
+  },
+  {
+    "resourceKind": "SecutiryContextConstraints",
+    "plural": "SecutiryContextConstraints"
+  },
+  {
+    "resourceKind": "ClusterServiceClass",
+    "plural": "ClusterServiceClasses"
+  },
+  {
+    "resourceKind": "ServiceClass",
+    "plural": "ServiceClasses"
   }
 ]
