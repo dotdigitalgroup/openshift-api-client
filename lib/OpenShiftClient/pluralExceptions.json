@@ -40,8 +40,8 @@
     "plural": "PriorityClasses"
   },
   {
-    "resourceKind": "SecutiryContextConstraints",
-    "plural": "SecutiryContextConstraints"
+    "resourceKind": "SecurityContextConstraints",
+    "plural": "SecurityContextConstraints"
   },
   {
     "resourceKind": "ClusterServiceClass",
@@ -50,5 +50,13 @@
   {
     "resourceKind": "ServiceClass",
     "plural": "ServiceClasses"
+  },
+  {
+    "resourceKind": "ComponentStatus",
+    "plural": "ComponentStatuses"
+  },
+  {
+    "resourceKind": "Endpoints",
+    "plural": "Endpoints"
   }
 ]
