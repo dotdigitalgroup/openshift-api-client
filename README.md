@@ -5,21 +5,40 @@ A simple client library to interact with the OpenShift REST API
 ## Installation
 
 ```
-$ yarn add openshift-client
+$ yarn add https://github.com/dotdigitalgroup/openshift-client
 ```
 
 ## Usage
 
 ```js
-const OpenshiftClient = require('openshift-client')
-const config = { url: 'https://os.example.com:8443', token: 'example' }
+const OpenShiftClient = require('openshift-client')
+const config = { url: 'https://os.example.com:8443', token: 'token_example' }
 const os = await OpenShiftClient(config)
 
 // get all build configs from "example" namespace
-const buildConfigs = await os['build.openshift.io/v1'].getBuildConfigs('example')
+const buildConfigs = await os['build.openshift.io/v1'].getBuildConfigs(
+  'example'
+)
 
 // get all builds configs from "example" of the "app-example" and passing query parameters
-const builds = await os['build.openshift.io/v1'].getBuildConfigs('example', 'app-example', { query: { watch: false } })
+const buildConfigs = await os['build.openshift.io/v1'].getBuildConfigs(
+  'example',
+  'app-example',
+  {
+    query: {
+      pretty: true
+    }
+  }
+)
+
+// create a build config
+const buildConfig = {} // resource body
+await os['build.openshift.io/v1'].createBuildConfig(
+  'app-example',
+  {
+    body: buildConfig
+  }
+)
 ```
 
 ## APIs and Methods
