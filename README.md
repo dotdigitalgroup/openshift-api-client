@@ -43,6 +43,12 @@ await os['apis/build.openshift.io/v1'].createBuildConfig(
 
 ## APIs and Methods
 
+This list may vary within different installations of OpenShift. You can query this list on your cluster as follows:
+
+```
+os.getMethods()
+```
+
 ### apis/apiregistration.k8s.io/v1
 
 - createAPIService()
