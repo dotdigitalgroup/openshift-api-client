@@ -16,12 +16,12 @@ const config = { url: 'https://os.example.com:8443', token: 'token_example' }
 const os = await OpenShiftClient(config)
 
 // get all build configs from "example" namespace
-const buildConfigs = await os['build.openshift.io/v1'].getBuildConfigs(
+const buildConfigs = await os['apis/build.openshift.io/v1'].getBuildConfigs(
   'example'
 )
 
-// get all builds configs from "example" of the "app-example" and passing query parameters
-const buildConfigs = await os['build.openshift.io/v1'].getBuildConfigs(
+// get all builds configs from "example" of the "app-example" with query parameters
+const buildConfigs = await os['apis/build.openshift.io/v1'].getBuildConfigs(
   'example',
   'app-example',
   {
@@ -33,7 +33,7 @@ const buildConfigs = await os['build.openshift.io/v1'].getBuildConfigs(
 
 // create a build config
 const buildConfig = {} // resource body
-await os['build.openshift.io/v1'].createBuildConfig(
+await os['apis/build.openshift.io/v1'].createBuildConfig(
   'app-example',
   {
     body: buildConfig
@@ -43,7 +43,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 
 ## APIs and Methods
 
-### apiregistration.k8s.io/v1
+### apis/apiregistration.k8s.io/v1
 
 - createAPIService()
 - deleteAPIService()
@@ -58,7 +58,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - patchAPIService()
 - updateAPIService()
 
-### extensions/v1beta1
+### apis/extensions/v1beta1
 
 - createDaemonSet(namespace)
 - deleteDaemonSet(namespace)
@@ -137,7 +137,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - patchScale(namespace)
 - updateScale(namespace)
 
-### apps/v1
+### apis/apps/v1
 
 - createControllerRevision(namespace)
 - deleteControllerRevision(namespace)
@@ -206,7 +206,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - patchStatefulSet(namespace)
 - updateStatefulSet(namespace)
 
-### events.k8s.io/v1beta1
+### apis/events.k8s.io/v1beta1
 
 - createEvent(namespace)
 - deleteEvent(namespace)
@@ -218,18 +218,18 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - updateEvent(namespace)
 - watchEvent(namespace)
 
-### authentication.k8s.io/v1
+### apis/authentication.k8s.io/v1
 
 - createTokenReview()
 
-### authorization.k8s.io/v1
+### apis/authorization.k8s.io/v1
 
 - createLocalSubjectAccessReview(namespace)
 - createSelfSubjectAccessReview()
 - createSelfSubjectRulesReview()
 - createSubjectAccessReview()
 
-### autoscaling/v1
+### apis/autoscaling/v1
 
 - createHorizontalPodAutoscaler(namespace)
 - deleteHorizontalPodAutoscaler(namespace)
@@ -244,7 +244,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - patchHorizontalPodAutoscaler(namespace)
 - updateHorizontalPodAutoscaler(namespace)
 
-### batch/v1
+### apis/batch/v1
 
 - createJob(namespace)
 - deleteJob(namespace)
@@ -259,7 +259,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - patchJob(namespace)
 - updateJob(namespace)
 
-### certificates.k8s.io/v1beta1
+### apis/certificates.k8s.io/v1beta1
 
 - createCertificateSigningRequest()
 - deleteCertificateSigningRequest()
@@ -275,7 +275,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - patchCertificateSigningRequest()
 - updateCertificateSigningRequest()
 
-### networking.k8s.io/v1
+### apis/networking.k8s.io/v1
 
 - createNetworkPolicy(namespace)
 - deleteNetworkPolicy(namespace)
@@ -287,7 +287,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - updateNetworkPolicy(namespace)
 - watchNetworkPolicy(namespace)
 
-### policy/v1beta1
+### apis/policy/v1beta1
 
 - createPodDisruptionBudget(namespace)
 - deletePodDisruptionBudget(namespace)
@@ -311,7 +311,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - updatePodSecurityPolicy()
 - watchPodSecurityPolicy()
 
-### authorization.openshift.io/v1
+### apis/authorization.openshift.io/v1
 
 - createClusterRoleBinding()
 - deleteClusterRoleBinding()
@@ -357,7 +357,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - createSubjectAccessReview()
 - createSubjectRulesReview(namespace)
 
-### rbac.authorization.k8s.io/v1
+### apis/rbac.authorization.k8s.io/v1
 
 - createClusterRoleBinding()
 - deleteClusterRoleBinding()
@@ -396,7 +396,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - updateRole(namespace)
 - watchRole(namespace)
 
-### storage.k8s.io/v1
+### apis/storage.k8s.io/v1
 
 - createStorageClass()
 - deleteStorageClass()
@@ -408,7 +408,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - updateStorageClass()
 - watchStorageClass()
 
-### admissionregistration.k8s.io/v1beta1
+### apis/admissionregistration.k8s.io/v1beta1
 
 - createMutatingWebhookConfiguration()
 - deleteMutatingWebhookConfiguration()
@@ -429,7 +429,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - updateValidatingWebhookConfiguration()
 - watchValidatingWebhookConfiguration()
 
-### apiextensions.k8s.io/v1beta1
+### apis/apiextensions.k8s.io/v1beta1
 
 - createCustomResourceDefinition()
 - deleteCustomResourceDefinition()
@@ -444,7 +444,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - patchCustomResourceDefinition()
 - updateCustomResourceDefinition()
 
-### scheduling.k8s.io/v1beta1
+### apis/scheduling.k8s.io/v1beta1
 
 - createPriorityClass()
 - deletePriorityClass()
@@ -456,7 +456,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - updatePriorityClass()
 - watchPriorityClass()
 
-### apps.openshift.io/v1
+### apis/apps.openshift.io/v1
 
 - createDeploymentConfig(namespace)
 - deleteDeploymentConfig(namespace)
@@ -477,7 +477,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - patchDeploymentConfig(namespace)
 - updateDeploymentConfig(namespace)
 
-### build.openshift.io/v1
+### apis/build.openshift.io/v1
 
 - createBuildConfig(namespace)
 - deleteBuildConfig(namespace)
@@ -502,7 +502,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - updateBuild(namespace)
 - getBuildLog(namespace)
 
-### image.openshift.io/v1
+### apis/image.openshift.io/v1
 
 - createImage()
 - deleteImage()
@@ -540,7 +540,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - patchImageStreamTag(namespace)
 - updateImageStreamTag(namespace)
 
-### network.openshift.io/v1
+### apis/network.openshift.io/v1
 
 - createClusterNetwork()
 - deleteClusterNetwork()
@@ -579,7 +579,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - updateNetNamespace()
 - watchNetNamespace()
 
-### oauth.openshift.io/v1
+### apis/oauth.openshift.io/v1
 
 - createOAuthAccessToken()
 - deleteOAuthAccessToken()
@@ -618,7 +618,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - updateOAuthClient()
 - watchOAuthClient()
 
-### project.openshift.io/v1
+### apis/project.openshift.io/v1
 
 - createProjectRequest()
 - listProjectRequest()
@@ -632,7 +632,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - updateProject()
 - watchProject()
 
-### quota.openshift.io/v1
+### apis/quota.openshift.io/v1
 
 - getAppliedClusterResourceQuota(namespace)
 - listAppliedClusterResourceQuota(namespace)
@@ -650,7 +650,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - patchClusterResourceQuota()
 - updateClusterResourceQuota()
 
-### route.openshift.io/v1
+### apis/route.openshift.io/v1
 
 - createRoute(namespace)
 - deleteRoute(namespace)
@@ -665,7 +665,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - patchRoute(namespace)
 - updateRoute(namespace)
 
-### security.openshift.io/v1
+### apis/security.openshift.io/v1
 
 - createPodSecurityPolicyReview(namespace)
 - createPodSecurityPolicySelfSubjectReview(namespace)
@@ -689,7 +689,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - updateSecurityContextConstraints()
 - watchSecurityContextConstraints()
 
-### template.openshift.io/v1
+### apis/template.openshift.io/v1
 
 - createBrokerTemplateInstance()
 - deleteBrokerTemplateInstance()
@@ -723,7 +723,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - updateTemplate(namespace)
 - watchTemplate(namespace)
 
-### user.openshift.io/v1
+### apis/user.openshift.io/v1
 
 - createGroup()
 - deleteGroup()
@@ -758,8 +758,26 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - updateUser()
 - watchUser()
 
-### monitoring.coreos.com/v1
+### apis/monitoring.coreos.com/v1
 
+- deletePrometheus(namespace)
+- deletecollectionPrometheus(namespace)
+- getPrometheus(namespace)
+- listPrometheus(namespace)
+- getPrometheus(namespace)
+- patchPrometheus(namespace)
+- createPrometheus(namespace)
+- updatePrometheus(namespace)
+- watchPrometheus(namespace)
+- deletePrometheusRule(namespace)
+- deletecollectionPrometheusRule(namespace)
+- getPrometheusRule(namespace)
+- listPrometheusRule(namespace)
+- getPrometheusRules(namespace)
+- patchPrometheusRule(namespace)
+- createPrometheusRule(namespace)
+- updatePrometheusRule(namespace)
+- watchPrometheusRule(namespace)
 - deleteAlertmanager(namespace)
 - deletecollectionAlertmanager(namespace)
 - getAlertmanager(namespace)
@@ -778,104 +796,140 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - createServiceMonitor(namespace)
 - updateServiceMonitor(namespace)
 - watchServiceMonitor(namespace)
-- deletePrometheusRule(namespace)
-- deletecollectionPrometheusRule(namespace)
-- getPrometheusRule(namespace)
-- listPrometheusRule(namespace)
-- getPrometheusRules(namespace)
-- patchPrometheusRule(namespace)
-- createPrometheusRule(namespace)
-- updatePrometheusRule(namespace)
-- watchPrometheusRule(namespace)
-- deletePrometheus(namespace)
-- deletecollectionPrometheus(namespace)
-- getPrometheus(namespace)
-- listPrometheus(namespace)
-- getPrometheus(namespace)
-- patchPrometheus(namespace)
-- createPrometheus(namespace)
-- updatePrometheus(namespace)
-- watchPrometheus(namespace)
 
-### acme.cert-manager.io/v1alpha2
+### apis/velero.io/v1
 
-- deleteOrder(namespace)
-- deletecollectionOrder(namespace)
-- getOrder(namespace)
-- listOrder(namespace)
-- getOrders(namespace)
-- patchOrder(namespace)
-- createOrder(namespace)
-- updateOrder(namespace)
-- watchOrder(namespace)
-- getOrder(namespace)
-- patchOrder(namespace)
-- updateOrder(namespace)
-- deleteChallenge(namespace)
-- deletecollectionChallenge(namespace)
-- getChallenge(namespace)
-- listChallenge(namespace)
-- getChallenges(namespace)
-- patchChallenge(namespace)
-- createChallenge(namespace)
-- updateChallenge(namespace)
-- watchChallenge(namespace)
-- getChallenge(namespace)
-- patchChallenge(namespace)
-- updateChallenge(namespace)
+- deleteSchedule(namespace)
+- deletecollectionSchedule(namespace)
+- getSchedule(namespace)
+- listSchedule(namespace)
+- getSchedules(namespace)
+- patchSchedule(namespace)
+- createSchedule(namespace)
+- updateSchedule(namespace)
+- watchSchedule(namespace)
+- deleteServerStatusRequest(namespace)
+- deletecollectionServerStatusRequest(namespace)
+- getServerStatusRequest(namespace)
+- listServerStatusRequest(namespace)
+- getServerStatusRequests(namespace)
+- patchServerStatusRequest(namespace)
+- createServerStatusRequest(namespace)
+- updateServerStatusRequest(namespace)
+- watchServerStatusRequest(namespace)
+- deleteBackup(namespace)
+- deletecollectionBackup(namespace)
+- getBackup(namespace)
+- listBackup(namespace)
+- getBackups(namespace)
+- patchBackup(namespace)
+- createBackup(namespace)
+- updateBackup(namespace)
+- watchBackup(namespace)
+- deleteBackupStorageLocation(namespace)
+- deletecollectionBackupStorageLocation(namespace)
+- getBackupStorageLocation(namespace)
+- listBackupStorageLocation(namespace)
+- getBackupStorageLocations(namespace)
+- patchBackupStorageLocation(namespace)
+- createBackupStorageLocation(namespace)
+- updateBackupStorageLocation(namespace)
+- watchBackupStorageLocation(namespace)
+- deleteRestore(namespace)
+- deletecollectionRestore(namespace)
+- getRestore(namespace)
+- listRestore(namespace)
+- getRestores(namespace)
+- patchRestore(namespace)
+- createRestore(namespace)
+- updateRestore(namespace)
+- watchRestore(namespace)
+- deleteDeleteBackupRequest(namespace)
+- deletecollectionDeleteBackupRequest(namespace)
+- getDeleteBackupRequest(namespace)
+- listDeleteBackupRequest(namespace)
+- getDeleteBackupRequests(namespace)
+- patchDeleteBackupRequest(namespace)
+- createDeleteBackupRequest(namespace)
+- updateDeleteBackupRequest(namespace)
+- watchDeleteBackupRequest(namespace)
+- deletePodVolumeRestore(namespace)
+- deletecollectionPodVolumeRestore(namespace)
+- getPodVolumeRestore(namespace)
+- listPodVolumeRestore(namespace)
+- getPodVolumeRestores(namespace)
+- patchPodVolumeRestore(namespace)
+- createPodVolumeRestore(namespace)
+- updatePodVolumeRestore(namespace)
+- watchPodVolumeRestore(namespace)
+- deleteVolumeSnapshotLocation(namespace)
+- deletecollectionVolumeSnapshotLocation(namespace)
+- getVolumeSnapshotLocation(namespace)
+- listVolumeSnapshotLocation(namespace)
+- getVolumeSnapshotLocations(namespace)
+- patchVolumeSnapshotLocation(namespace)
+- createVolumeSnapshotLocation(namespace)
+- updateVolumeSnapshotLocation(namespace)
+- watchVolumeSnapshotLocation(namespace)
+- deletePodVolumeBackup(namespace)
+- deletecollectionPodVolumeBackup(namespace)
+- getPodVolumeBackup(namespace)
+- listPodVolumeBackup(namespace)
+- getPodVolumeBackups(namespace)
+- patchPodVolumeBackup(namespace)
+- createPodVolumeBackup(namespace)
+- updatePodVolumeBackup(namespace)
+- watchPodVolumeBackup(namespace)
+- deleteResticRepository(namespace)
+- deletecollectionResticRepository(namespace)
+- getResticRepository(namespace)
+- listResticRepository(namespace)
+- getResticRepositorys(namespace)
+- patchResticRepository(namespace)
+- createResticRepository(namespace)
+- updateResticRepository(namespace)
+- watchResticRepository(namespace)
+- deleteDownloadRequest(namespace)
+- deletecollectionDownloadRequest(namespace)
+- getDownloadRequest(namespace)
+- listDownloadRequest(namespace)
+- getDownloadRequests(namespace)
+- patchDownloadRequest(namespace)
+- createDownloadRequest(namespace)
+- updateDownloadRequest(namespace)
+- watchDownloadRequest(namespace)
 
-### cert-manager.io/v1alpha2
+### apis/automationbroker.io/v1alpha1
 
-- deleteCertificate(namespace)
-- deletecollectionCertificate(namespace)
-- getCertificate(namespace)
-- listCertificate(namespace)
-- getCertificates(namespace)
-- patchCertificate(namespace)
-- createCertificate(namespace)
-- updateCertificate(namespace)
-- watchCertificate(namespace)
-- getCertificate(namespace)
-- patchCertificate(namespace)
-- updateCertificate(namespace)
-- deleteIssuer(namespace)
-- deletecollectionIssuer(namespace)
-- getIssuer(namespace)
-- listIssuer(namespace)
-- getIssuers(namespace)
-- patchIssuer(namespace)
-- createIssuer(namespace)
-- updateIssuer(namespace)
-- watchIssuer(namespace)
-- getIssuer(namespace)
-- patchIssuer(namespace)
-- updateIssuer(namespace)
-- deleteCertificateRequest(namespace)
-- deletecollectionCertificateRequest(namespace)
-- getCertificateRequest(namespace)
-- listCertificateRequest(namespace)
-- getCertificateRequests(namespace)
-- patchCertificateRequest(namespace)
-- createCertificateRequest(namespace)
-- updateCertificateRequest(namespace)
-- watchCertificateRequest(namespace)
-- getCertificateRequest(namespace)
-- patchCertificateRequest(namespace)
-- updateCertificateRequest(namespace)
-- deleteClusterIssuer()
-- deletecollectionClusterIssuer()
-- getClusterIssuer()
-- listClusterIssuer()
-- getClusterIssuers()
-- patchClusterIssuer()
-- createClusterIssuer()
-- updateClusterIssuer()
-- watchClusterIssuer()
-- getClusterIssuer()
-- patchClusterIssuer()
-- updateClusterIssuer()
+- deleteBundle(namespace)
+- deletecollectionBundle(namespace)
+- getBundle(namespace)
+- listBundle(namespace)
+- getBundles(namespace)
+- patchBundle(namespace)
+- createBundle(namespace)
+- updateBundle(namespace)
+- watchBundle(namespace)
+- deleteBundleBinding(namespace)
+- deletecollectionBundleBinding(namespace)
+- getBundleBinding(namespace)
+- listBundleBinding(namespace)
+- getBundleBindings(namespace)
+- patchBundleBinding(namespace)
+- createBundleBinding(namespace)
+- updateBundleBinding(namespace)
+- watchBundleBinding(namespace)
+- deleteBundleInstance(namespace)
+- deletecollectionBundleInstance(namespace)
+- getBundleInstance(namespace)
+- listBundleInstance(namespace)
+- getBundleInstances(namespace)
+- patchBundleInstance(namespace)
+- createBundleInstance(namespace)
+- updateBundleInstance(namespace)
+- watchBundleInstance(namespace)
 
-### metrics.k8s.io/v1beta1
+### apis/metrics.k8s.io/v1beta1
 
 - getNodeMetrics()
 - listNodeMetrics()
@@ -884,7 +938,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - listPodMetrics(namespace)
 - getPodMetrics(namespace)
 
-### servicecatalog.k8s.io/v1beta1
+### apis/servicecatalog.k8s.io/v1beta1
 
 - createClusterServiceBroker()
 - deleteClusterServiceBroker()
@@ -986,7 +1040,7 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - patchServicePlan(namespace)
 - updateServicePlan(namespace)
 
-### v1
+### api/v1
 
 - createBinding(namespace)
 - getComponentStatus()
@@ -1165,6 +1219,9 @@ await os['build.openshift.io/v1'].createBuildConfig(
 - getService(namespace)
 - patchService(namespace)
 - updateService(namespace)
+
+### oapi/v1
+
 - getAppliedClusterResourceQuota(namespace)
 - listAppliedClusterResourceQuota(namespace)
 - getAppliedClusterResourceQuotas(namespace)
