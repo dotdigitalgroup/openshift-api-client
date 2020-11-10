@@ -5,7 +5,7 @@ A simple client library to interact with the OpenShift REST API
 ## Installation
 
 ```
-$ yarn add https://github.com/dotdigitalgroup/openshift-client
+$ yarn add openshift-api-client
 ```
 
 ## Usage
