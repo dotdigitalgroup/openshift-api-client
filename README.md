@@ -11,7 +11,7 @@ $ yarn add https://github.com/dotdigitalgroup/openshift-client
 ## Usage
 
 ```js
-const OpenShiftClient = require('openshift-client')
+const OpenShiftClient = require('openshift-api-client')
 const config = { url: 'https://os.example.com:8443', token: 'token_example' }
 const os = await OpenShiftClient(config)
 
@@ -48,6 +48,20 @@ This list may vary within different installations of OpenShift. You can query th
 ```
 os.getMethods()
 ```
+
+## Custom Call
+
+You can make a custom call to any API endpoint:
+
+```
+os.customCall(verb, endpoint, data)
+```
+
+Where:
+
+- **verb** `(string)`: any HTTP verb (GET, POST, PUT, PATCH etc);
+- **endpoint** `(string)`: the endpoint (relative to the cluster URL);
+- **data** `(object|null)`: data to be sent in the request.
 
 ### apis/apiregistration.k8s.io/v1
 
